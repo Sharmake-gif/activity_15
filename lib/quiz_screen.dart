@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../models/question.dart';
-import '../services/api_service.dart';
+import 'questions.dart';
+import 'api_service.dart';
 
 class QuizScreen extends StatefulWidget {
   @override
@@ -43,7 +43,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
       if (selectedAnswer == correctAnswer) {
         _score++;
-        _feedbackText = "Correct! The answer is $correctAnswer.";
+        _feedbackText = " Ayee! Correct! The answer is $correctAnswer.";
       } else {
         _feedbackText = "Incorrect. The correct answer is $correctAnswer.";
       }
@@ -82,7 +82,7 @@ class _QuizScreenState extends State<QuizScreen> {
       return Scaffold(
         body: Center(
           child: Text(
-            'Quiz Finished! Your Score: $_score / ${_questions.length}',
+            'You have finished your! Your Score: $_score / ${_questions.length}',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
@@ -125,8 +125,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       : Colors.red,
                 ),
               ),
-            if (_answered)
-              SizedBox(height: 12),
+            if (_answered) SizedBox(height: 12),
             if (_answered)
               ElevatedButton(
                 onPressed: _nextQuestion,
